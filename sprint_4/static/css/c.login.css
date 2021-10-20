@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+header{
+    background: #000;
+}
+
+body{
+    background-image: url(../images/pexelsphoto3828366.jpeg);
+}
+
+
+
+
+.logo{
+    padding: 0px;
+    margin: 0;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.op{
+    padding-top: 50px;
+    display: flex;
+    flex-grow: 1;
+}
+.nav li {
+    text-align: center;
+    flex-grow: 1;
+}
+.nav ul{
+    margin-left:350px ;
+    margin-right:350px;
+    list-style: none;
+    display: flex;
+    /*para centrar el menu
+    justify-content: center;*/
+}
+.nav a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.search-icon{
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+    background-position: 4px center;
+    background-size: 20px;
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding-left: 28px;
+    height: 30px;
+    border: 3px solid rgb(255, 255, 255);
+
+}
+
+.busca{
+    background: #000;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.busca:focus{
+    border: none;
+    outline: 0; }
+
+/*FORMULARIO*/
+.form{
+    width: 500px;
+    background: #000;
+    padding: 30px;
+    margin: auto;
+    margin-top: 200px;
+    border-radius: 4px;
+    box-shadow: 7px 12px 20px #000;
+}
+
+.c{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 2px solid #478ac9;
+    font-size: 18px;
+}
+
+.form p {
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 50px;
+}
+
+.form a{
+    color: #478ac9;
+    text-decoration: none;
+
+}
+
+.form a:hover{
+    color: #478ac9;
+    text-decoration: underline;
+}
+
+button.entrar {
+    width: 100%;
+    background:#478ac9;
+    border: none;
+    padding: 12px;
+    margin: 16px 0;
+    font-size: 16px;
+    
+}
+
+button.entrar:hover{
+    cursor: pointer;
+    background: #478ac9;   
+}
+
+button.registrar{
+    width: 100%;
+    background: #478ac9;
+    border: none;
+    padding: 12px;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+button.registrar:hover{
+    cursor: pointer;
+    background: #478ac9;   
+}
+
+
+
+
+
+
+
+
+

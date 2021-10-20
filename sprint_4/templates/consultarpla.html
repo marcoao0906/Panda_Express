@@ -1,0 +1,61 @@
+{% block content %}
+<h1>Agregar Platos</h1>
+<link rel="stylesheet" href="static/css/estilo.css">
+<a href="http://127.0.0.1:5500/dashboart">Volver</a>
+<hr>
+<h2>Inventario Platos</h2>
+<form action='/ConsuPla'>
+    <p>Nombre Plato <br>
+        <input type="text" name="Nombre"> 
+    </p>
+    <p>
+        <input type="submit" value="Consultar">
+    </p>
+
+<h2>Listar Platos</h2>
+<table id="tabel" border="1" align="center"> 
+    <tbody>
+      <tr style="text-align:right"> 
+        <th>Nombre</th> 
+        <th>Precio</th> 
+        <th>Descripcion</th> 
+        <th>Cantidad</th> 
+    </tr> 
+    
+    <tr>
+        <td>{{plato[0]}}</td> 
+        <td>{{plato[1]}}</td> 
+        <td>{{plato[2]}}</td>  
+        <td>{{plato[3]}}</td>
+    </tr>
+   
+    </tbody>
+</table>
+</form>
+
+<form action='/VerPla'>
+    <p>
+        <input type="submit" value="Ver Todos Los Platos">
+    </p>
+
+    <h2>Platos Existentes en el Menu</h2>
+    <table id="tabel" border="1" align="center"> 
+        <tbody>
+          <tr style="text-align:right"> 
+            <th>Nombre</th> 
+            <th>Precio</th> 
+            <th>Descripcion</th> 
+            <th>Cantidad</th> 
+        </tr> 
+        {%for i in platos%}
+        <tr>
+            <td>{{i[0]}}</td> 
+            <td>{{i[1]}}</td> 
+            <td>{{i[2]}}</td>  
+            <td>{{i[3]}}</td>
+        </tr>
+       {%endfor%}
+        </tbody>
+    </table>
+    </form>
+{% endblock %}
