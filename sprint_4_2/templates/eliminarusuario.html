@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eliminar Usuarios</title>
+    </head>
+    <body >
+        <form action="/eliminarUsuario/" method="POST" >
+            {%for elemento in lista %}
+                <ul>
+                    <li>{{elemento}}</li>
+                </ul>
+            {%endfor%}
+            <h3>Escriba el username a eliminar</h3><input type="text" name="eliminar">
+            <a href="/eliminarUsuario/">
+            <input type="submit" value="eliminar>"</a>
+        </form>
+    </body>
+</html>
