@@ -1,0 +1,104 @@
+{%extends 'layout.html'%}
+{% block body %}
+<h1>Buscar Platos</h1>
+<link rel="stylesheet" href="static/css/buscaplatos.css">
+<a href="http://127.0.0.1:5500/dashboart">Volver</a>
+<hr>
+<h2>Buscar Platos</h2>
+<form action='/buscapla'>
+    <p>Nombre Plato <br>
+        <input type="text" name="nombre">
+    </p>
+    <p>
+        <input type="submit" value="Consultar">
+    </p>
+</form>
+<form action='/Añadir' method="GET">
+    <h2>Plato Buscado</h2>
+    
+    <table class="tabel table-striped table-bordered bg-white table-sm">
+        <tbody>
+            <tr style="text-align:right">
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Opciones</th>
+
+            </tr>
+            {%for j in plato%}
+            <tr>
+                <td>{{j[0]}}</td>
+                <td>{{j[1]}}</td>
+                <td>{{j[2]}}</td>
+                <td>{{j[3]}}</td>
+                <td>
+
+                    <a href="#ventana1" class="btn btn-danger" data-toggle="modal">Pedir</a>
+                    <div class="modal fade" id="ventana1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Cantidad de Pedido</h5>
+                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                        aria-hidden="true">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Añade la cantidad de platos que vas a pedir.
+                                        <input type="number" name="cantidad" step="1" min="0" max="50" id="cantidad">
+                                        <input type="submit" value="listo"><a href="/Añadir"></a>
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="btn btn-secundary" class="btn btn-default" data-dismiss="modal"
+                                        data-can="cantidad">Cerrar</button>
+                                        <a href="/Añadir/{{j.0}}"><button  type="button"
+                                            class="btn btn-primary">Guardar</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/Deseo/{{j.0}}" class="btn btn-info">Favorito</a>
+                    <a href="/Comentarios/{{j.0}}" class="btn btn-primary">Comentar</a>
+
+                </td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+</form>
+
+<form action='/VerPlausuario'>
+    <p>
+        <input type="submit" value="Ver Todos Los Platos">
+    </p>
+
+    <h2>Platos Existentes en el Menu</h2>
+    <table class="tabel table-striped table-bordered bg-white table-sm">
+        <tbody>
+            <tr style="text-align:right">
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Opciones</th>
+            </tr>
+            {%for i in platos%}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>
+                    <a href="/Añadir/{{i.0}}" class="btn btn-danger">Pedir</a>
+                    <a href="/Deseo/{{i.0}}" class="btn btn-info">Favorito</a>
+                    <a href="/Comentarios/{{i.0}}" class="btn btn-primary">Comentar</a>
+
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</form>
+{% endblock %}

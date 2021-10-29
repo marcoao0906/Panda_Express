@@ -1,0 +1,32 @@
+{% block content %}
+<h1>Consultar Agregar o Eliminar Platos</h1>
+<link rel="stylesheet" href="static/css/dashboart.css">
+<hr>
+<h2>Inventario Platos</h2>
+<form action='/ConsuPla'>
+    <p>
+        <input type="submit" value="Consultar">
+    </p>
+</form>
+<form action='/Agregapla'>
+    <p>
+        <input type="submit" value="Agregar">
+    </p>
+</form>
+<form action='/Eliminapla'>
+    <p>
+        <input type="submit" value="Eliminar">
+    </p>
+</form>
+<form action="/pagEliminarUsuario/">
+    <h2>Bienvenido {{username}}, eres un superadmin</h2>
+    <a href="/pagEliminarUsuario/">
+    <button type="submit" value="EliminarUsuario">Eliminar Usuario</button></a>        
+        
+    
+</form>
+<a href="/crearUsuario/">
+<button type="submit" value="Crear usuario">Crear usuario</button></a>        
+<a href="/logout">
+<button type="submit" value="cerrar">Cerrar sesion</button></a>
+{% endblock %}

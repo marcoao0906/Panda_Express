@@ -6,28 +6,27 @@ def conectar():
     conn= sqlite3.connect(dbname)
     return conn
 
-def getPlatos():
+def getDetallepedido():
     conn= conectar()
-    cursor= conn.execute("select * from platos;")
+    cursor= conn.execute("select * from detallepedido;")
     resultados= list(cursor.fetchall())
     conn.close()
     return resultados
 
-def getPlatosSecure(nombre):
+def getDepedido(pedido_id):
     try : 
         conn= conectar()
-        t= (nombre)
-        SQLstmt="select * from platos where nombre=?;"
-        cursor= conn.execute(SQLstmt,  (nombre,))
+        SQLstmt="select * from detallepedido where pedido_id=?;"
+        cursor= conn.execute(SQLstmt,  (pedido_id,))
         resultado= cursor.fetchall()
         return resultado
     except Error as error:
         return error
 
-def addPlatos(nombre, descripcion, precio):
+def addPedidetalle(pedido_id, plato_id, cantidad):
     try :
         conn=conectar()
-        conn.execute("insert into platos (nombre, descripcion, precio) values(?,?,?);", (nombre, descripcion, precio))
+        conn.execute("insert into detallepedido (pedido_id, plato_id, cantidad) values(?,?,?);", (pedido_id, plato_id, cantidad))
         conn.commit()
         conn.close()
         return True
@@ -35,10 +34,10 @@ def addPlatos(nombre, descripcion, precio):
         print(error)
         return False
 
-def deletePlatos(nombre):
+def deletePedidetalle(pedido_id):
     try : 
         conn= conectar()
-        SQLstmt="delete from platos where nombre='"+str(nombre)+"';"
+        SQLstmt="delete from detallepedido where pedido_id='"+str(pedido_id)+"';"
         print(SQLstmt)
         cursor= conn.execute(SQLstmt)
         resultado= cursor.fetchall()
@@ -47,5 +46,3 @@ def deletePlatos(nombre):
         return resultado
     except Error as error:
         return error
-
-

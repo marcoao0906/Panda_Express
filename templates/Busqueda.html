@@ -1,0 +1,29 @@
+{% block content %}
+<h1>Bienvenido {{username}}, eres Usuari@ de Panda Express restaurante de comida Asiatica</h1>
+<link rel="stylesheet" href="static/css/Busqueda.css">
+<hr>
+<h2>Buscar Platos</h2>
+<form action='/buscapla'>
+    <p>
+        <input type="submit" value="Buscar Platos">
+    </p>
+</form>
+<form action='/pedidopla'>
+    <p>
+        <input type="submit" value="Carrito de Compras">
+    </p>
+</form>
+<form action='/listadeseos'>
+    <p>
+        <input type="submit" value="Lista de Deseos">
+    </p>
+</form>
+<form action='/comentarios'>
+  <p>
+      <input type="submit" value="Añadir Comentarios">
+  </p>
+</form>
+<form action="/logout">       
+    <button type="submit" value="cerrar">Cerrar Sesion</button>        
+</form>
+{% endblock %}

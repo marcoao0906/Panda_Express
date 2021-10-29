@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="static/css/eliminausuarios.css">
+    <title>Inicio - Panda Express </title>
+
+    <script language="javascript">
+        element=document.getElementByType("text")
+        function desbloqueo(){
+            document.getElementById("nombre").disabled = false;
+            document.getElementById("apellidos").disabled = false;
+            document.getElementById("email").disabled = false;
+            document.getElementById("id").disabled = false;
+            document.getElementById("username").disabled = false;
+            document.getElementById("direccion").disabled = false;
+            document.getElementById("contrasena").disabled = false;
+            document.getElementById("celular").disabled = false;
+            document.getElementById("rol").disabled = false;
+            document.getElementById("update").disabled=true;
+            document.getElementById("actualizar").disabled=true;
+            document.getElementById("eliminar").disabled=false;           
+
+        }      
+        function desbloqueo1(){
+            document.getElementById("nombre").disabled = false;
+            document.getElementById("apellidos").disabled = false;
+            document.getElementById("email").disabled = false;
+            document.getElementById("id").disabled = true;
+            document.getElementById("username").disabled = false;
+            document.getElementById("direccion").disabled = false;
+            document.getElementById("contrasena").disabled = false;
+            document.getElementById("celular").disabled = false;
+            document.getElementById("rol").disabled = false;
+            document.getElementById("update").disabled=true;
+            document.getElementById("actualizar").disabled=true;
+            document.getElementById("eliminar").disabled=true;           
+
+        }      
+
+    </script>
+
+
+
+
+</head>
+<body>
+<table align="center">
+<tbody>
+    <tr>
+    <th>
+        <td><img src="../static/images/logo2.png" width="50" alt="80">
+        <td>
+            <h2>ADMINISTRACION DE USUARIOS </h2>
+        </td>
+    </th>
+    <th>
+        <td>
+            {{nameuser}}
+        </td>
+    </th>
+    </tr>
+</tbody>
+</table>
+
+<a href="{{url_for('logout')}}">Cerrar sesion</a>
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+            {{ messages[0] }}. Ingresa un usuario valido</a>.
+        </div>
+        {% endif %}
+    {% endwith %}
+
+<form action="/buscaUsuario/" method="post">
+    <table>
+    <tbody>
+        <tr>
+        <td>
+        <p>Buscar un Usuario<br>
+        <input type="search" placeholder="Buscar" size="50" name="nombreU">
+        </p>
+        </td>
+        <td>
+        <p>
+        <br>
+        <input type="submit" value="Buscar">
+        </p>
+    </tbody>
+    </table>
+</form>
+<table>
+<tbody>
+    <tr>
+        <td>
+            <table "tabel table-striped table-bordered bg-white table-sm" bordered=10>
+            <tbody>
+            <tr style="text-align:center">
+            <th>ID</th>
+            <th>Username</th>
+            <th>nombre</th>
+    </tr>
+    {%for j in lista%}
+        <tr>
+            <td>{{j[0]}}</td>
+            <td><a href="/datos/{{j.1}}">{{j[1]}}</td>
+            <td>{{j[2]}}</td>
+            <td>{{j[3]}}</td>
+           
+            
+        </tr>
+    {%endfor%}
+</tbody>
+</table>
+<h1>Datos del Usuario</h1>
+       
+<table border="1">
+<tbody>
+    <tr>
+        <td>
+        <form action="/eliminarUsuario/{{username}}" method="POST" name="datos">
+            <table>
+            <tbody>
+            <tr>
+                <td>
+                    <p>Nombres<br>
+                    <input type="text" nameº="nombre" id="nombre" placeholder={{nombre}} disabled="disabled">
+                </td>
+                <td>
+                    <p>Apellidos<br>
+                    <input type="text" name="apellidos" id="apellidos" placeholder={{apellidos}} disabled="disabled">
+                </td>
+                <td>
+                    <p>Correo electronico<br>
+                    <input type="text" name="email" id="email" placeholder={{email}} disabled="disabled">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>id<br>
+                    <input type="text" name="id" id="id" placeholder={{id}} disabled="disabled">
+                </td>
+                <td>
+                    <p>username<br>
+                    <input type="text" name="username" id="username" placeholder={{username}} disabled="disabled">
+                </td>
+                <td>
+                    <p>Direccion<br>
+                    <input type="text" name="direccion" id="direccion" placeholder={{direccion}} disabled="disabled">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>contraseña<br>
+                    <input type="text" name="contrasena" id="contrasena" placeholder={{contrasena}} disabled="disabled">
+                </td>
+                <td>
+                    <p>Celular<br>
+                    <input type="text" name="celular" id="celular" placeholder={{celular}} disabled="disabled">
+                </td>
+                <td>
+                    <p>rol<br>
+                    <input type="text" name="rol" id="rol" placeholder={{rol}} disabled="disabled">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    
+                    <input type="submit" id="eliminar" value="eliminar" disabled="disabled">
+                </td>
+                <td>
+                    <input type="submit" id="actualizar" value="actualizar" disabled="disabled">
+                <td>
+
+            </tr>
+            </tbody>
+            </table>
+        </form>
+        </td>
+    </tr>    
+    <tr>
+        <td>
+        <table>
+            <tr>
+            <td>
+                <input type="submit" value="Gestionar Usuarios" id="update" onclick="desbloqueo()">
+            </td>
+            <td>
+                <a  href="{{url_for('crearUsuario')}}" >
+                <input type="submit" value="Nuevo" id="nuevo" onclick="desbloqueo1()"></a>
+            </td>
+            </tr>
+            
+        </table>            
+        </td>
+                    
+    </tr>
+    
+</tbody>
+</table>
+</body>
+
+
+   

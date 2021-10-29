@@ -6,28 +6,28 @@ def conectar():
     conn= sqlite3.connect(dbname)
     return conn
 
-def getPlatos():
+def gettemporal():
     conn= conectar()
-    cursor= conn.execute("select * from platos;")
+    cursor= conn.execute("select * from temporal;")
     resultados= list(cursor.fetchall())
     conn.close()
     return resultados
 
-def getPlatosSecure(nombre):
+def gettemSecure(nombre):
     try : 
         conn= conectar()
         t= (nombre)
-        SQLstmt="select * from platos where nombre=?;"
+        SQLstmt="select * from temporal where nombre=?;"
         cursor= conn.execute(SQLstmt,  (nombre,))
         resultado= cursor.fetchall()
         return resultado
     except Error as error:
         return error
 
-def addPlatos(nombre, descripcion, precio):
+def addtem(nombre, descripcion, precio, cantidad):
     try :
         conn=conectar()
-        conn.execute("insert into platos (nombre, descripcion, precio) values(?,?,?);", (nombre, descripcion, precio))
+        conn.execute("insert into temporal (nombre, descripcion, precio, cantidad) values(?,?,?);", (nombre, descripcion, precio, cantidad))
         conn.commit()
         conn.close()
         return True
@@ -35,10 +35,10 @@ def addPlatos(nombre, descripcion, precio):
         print(error)
         return False
 
-def deletePlatos(nombre):
+def deletetem(nombre):
     try : 
         conn= conectar()
-        SQLstmt="delete from platos where nombre='"+str(nombre)+"';"
+        SQLstmt="delete from temporal where nombre='"+str(nombre)+"';"
         print(SQLstmt)
         cursor= conn.execute(SQLstmt)
         resultado= cursor.fetchall()
@@ -47,5 +47,13 @@ def deletePlatos(nombre):
         return resultado
     except Error as error:
         return error
-
-
+#para detalle pedidos
+def gettem(id):
+    try : 
+        conn= conectar()
+        SQLstmt="select * from temporal where id=?;"
+        cursor= conn.execute(SQLstmt,  (id,))
+        resultado= cursor.fetchall()
+        return resultado
+    except Error as error:
+        return error

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="static/css/eliminausuarios.css">
+    <title>Inicio - Panda Express </title>
+</head>
+<body>
+<table align="center">
+<tbody>
+    <tr>
+    <th>
+        <td><img src="../static/images/logo2.png" width="50" alt="80">
+        <td>
+            <h2>REGISTRO DE USUARIOS </h2>
+        </td>
+    </th>
+    <th>
+        <td>
+            {{nameuser}}
+        </td>
+    </th>
+    </tr>
+</tbody>
+</table>
+
+<table border="1" style="margin: 0 auto;">
+<tbody>
+    <tr>
+        <td>
+        <form action="/registrarUsuario/" method="POST" name="datos">
+            <table>
+            <tbody>
+            <tr>
+                <td>
+                    <p>Nombres<br>
+                    <input type="text" name="nombre" id="nombre" placeholder={{nombre}}>
+                </td>
+                <td>
+                    <p>Apellidos<br>
+                    <input type="text" name="apellidos" id="apellidos" placeholder={{apellidos}} >
+                </td>
+                <td>
+                    <p>Correo electronico<br>
+                    <input type="text" name="email" id="email" placeholder={{email}} >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Direccion<br>
+                    <input type="text" name="direccion" id="direccion" placeholder={{direccion}} >
+                </td>
+                <td>
+                    <p>Celular<br>
+                    <input type="text" name="celular" id="celular" placeholder={{celular}} >
+                </td>
+                 <td>
+                    <p>contraseña<br>
+                    <input type="password" name="contrasena" id="contrasena" placeholder={{contrasena}}>
+                </td>
+            </tr>            
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                    <input type="submit" id="update" value="guardar">
+                </td>
+                <td>
+                    
+                </td>
+
+            </tr>
+            </tbody>
+            </table>
+        </form>
+        </td>
+    </tr>        
+</tbody>
+</table>
+</body>

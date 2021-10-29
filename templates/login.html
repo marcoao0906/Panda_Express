@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--Connection with CSS-->
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/c.login.css') }}" />
+     <script src="{{ url_for('static', filename='js/validacion.js') }}"></script>
+    <title>Panda Express-Entrar o registrarse </title>
+</head>
+<body>
+<header>
+    <nav class="nav">
+        <ul>
+            <div class="logo"><li><img src="../static/images/logo2.png" class="logo" width="160" alt="80"></li></div>
+            <div class="op">
+                <li><a href="/autenticar/" class="u-border-hover-black u-border-none u-border-white u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-1"><span ></span>INICIO</a></li>
+                <li><a href="/qs" class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span ></span>QUIENES SOMOS</a></li>
+                <li><a target="_blank" href="/" class="u-border-none u-btn u-button-style u-none u-text-hover-white u-text-white u-btn-3"><span ></span>MENU</a></li>
+                <div class="search-icon"><input type="text" name="buscador" class="busca"  placeholder="Search"></div>
+                <li><a href=""> <img src="../static/images/user.png" class="user" width="30" alt="50"></a></li>
+            </div>
+        </ul>
+    </nav>
+</header>
+<section class="form">
+    <!--FORMULARIO-->
+    <form name="form" method="post" action="/autenticar/">
+        {{form.hidden_tag()}}
+        <div>
+            {{ form.username.label }}
+                {{ form.username }}<br>
+                {% for error in form.username.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.password.label }}
+                {{ form.password }}<br>
+                {% for error in form.password.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>{{ form.remember_me() }} {{ form.remember_me.label }}</div>
+            <div>
+                {{ form.submit() }}
+            </div>
+            <p><a href="{{url_for('autenticar')}}">registrarse</a></p>           
+
+            <p><a href="#">Olvide mi contraseña</a></p>
+    </form>
+       
+</section>
+     
+    
+</body>
+</html>
