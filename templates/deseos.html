@@ -1,0 +1,78 @@
+{%extends 'layout.html'%}
+{% block body %}
+
+<link rel="stylesheet" href="static/css/deseos.css">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/deseos.css') }}" />
+    <title>registro</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <div class="logo">
+                    <li><img src="../static/images/logo2.png" class="logo" width="140" alt="80"></li>
+                </div>
+                <div class="op">
+                    <li><a href="/buscapla"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Buscar
+                            Platos</a></li>
+                    <li><a href="/pedidopla"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Carrito
+                            de Compras</a></li>
+                    <li><a href="/listadeseos"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Lista
+                            de Deseos</a></li>
+                    <li><a href="/comentarios"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>
+                            Comentarios</a></li>
+                    <li><a href="/logout"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Cerrar
+                            Sesion</a></li>
+
+
+                    <li><a href=""><img src="../static/images/user.png" class="user" width="30" alt="50"></a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="form">
+        <h1>Lista de Deseos</h1>
+        <p></p>
+
+        
+
+        <form action='/listadeseos' method="GET">
+            
+            <h1>Estos son tus Platos Favoritos</h1>
+            <div class="row d-flex justify-content-center">
+            <table class="tabel table-striped table-bordered bg-white table-sm">
+                
+                <tbody>
+                    <tr style="text-align:right">
+                        <th>Plato</th>
+                        <th>Descripcion</th>
+                        <th>Opciones</th>
+                    </tr>
+                    {%for i in pladeseos%}
+                    <tr>
+                        <td>{{i[2]}}</td>
+                        <td>{{i[3]}}</td>
+                    </form>
+
+                        <td>
+                            <a href="/eliminardeseo/{{i.0}}" class="btn btn-danger">Eliminar</a>
+
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <h1>{{mendaje}}</h1>
+        </div>
+        
+    </section>
+    {% endblock %}

@@ -1,0 +1,75 @@
+<!Doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/registro.css') }}" />
+        <title>registro</title>
+    </head>
+    <body>
+    <header>
+    <nav class="nav">
+        <ul>
+            <div class="logo"><li><img src="../static/images/logo2.png" class="logo" width="160" alt="80"></li></div>
+            <div class="op">
+                <li><a href="/autenticar/" class="u-border-hover-black u-border-none u-border-white u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-1"><span ></span>INICIO</a></li>
+                <li><a href="/qs" class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span ></span>QUIENES SOMOS</a></li>
+                <li><a target="_blank" href="/" class="u-border-none u-btn u-button-style u-none u-text-hover-white u-text-white u-btn-3"><span ></span>MENU</a></li>
+                <div class="search-icon"><input type="text" name="buscador" class="busca"  placeholder="Search"></div>
+                <li><a href=""> <img src="../static/images/user.png" class="user" width="30" alt="50"></a></li>
+            </div>
+        </ul>
+    </nav>
+</header>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}. Go to <a href="{{ url_for('login') }}">login page</a>.
+    </div>
+{% endif %}
+{% endwith %}
+
+<section class="form">
+    <h4>Formulario de Registro</h4>
+        <div class="u-form  u-form-2">
+            <form action="/registrarUsuario/" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">                        <input type="hidden" id="siteId" name="siteId" value="827239">
+                <input  type="hidden" id="pageId" name="pageId" value="827240">
+                <div class="u-form-group u-form-name">
+                    <label for="name-834a" class="u-form-control-hidden u-label"></label>
+                    <input class="constrols" type="text" placeholder="Nombres" id="name-834a" name="nombre" class="u-border-1 u-border-palette-1-base u-input u-input-rectangle u-white" required="" autofocus="autofocus">
+                </div>
+                <div class="u-form-email u-form-group">
+                    <label for="apellido" class="u-form-control-hidden u-label"></label>
+                    <input class="constrols" type="text" placeholder="Apellidos" id="apellido" name="apellido" class="u-border-1 u-border-palette-1-base u-input u-input-rectangle u-white" required="">
+                </div>
+                <div class="u-form-email u-form-group">
+                    <label for="email" class="u-form-control-hidden u-label"></label>
+                    <input class="constrols" type="email" placeholder="Email" rows="4" cols="50" id="email" name="email" class="u-border-1 u-border-palette-1-base u-input u-input-rectangle u-white" required="required" type="email">
+                </div>
+                <div class="u-form-email u-form-group">
+                    <label for="direccion" class="u-form-control-hidden u-label"></label>
+                    <input class="constrols" type="text" placeholder="direccion" id="direccion" name="direccion" class="u-border-1 u-border-palette-1-base u-input u-input-rectangle u-white" required="">
+                </div>
+                <div class="u-form-email u-form-group">
+                    <label for="celular" class="u-form-control-hidden u-label"></label>
+                    <input class="constrols" type="text" placeholder="celular" id="celular" name="celular" class="u-border-1 u-border-palette-1-base u-input u-input-rectangle u-white" required="">
+                </div>
+                <div class="u-form-group u-form-textarea u-form-group-8">
+                    <label for="password" class="u-form-control-hidden u-label"></label>
+                    <input class="constrols" type="password" rows="4" cols="50" id="password" name="password" class="u-border-1 u-border-palette-1-base u-input u-input-rectangle u-white" required="required" type="text" placeholder="Crea una contraseña">
+                </div>
+                <div class="u-form-agree u-form-group u-form-group-9">
+                    <input  type="checkbox" id="agree-29d5" name="agree" class="u-agree-checkbox" required="">
+                    <label for="agree-29d5" class="u-label"><a href="#">Acepto los términos del servicio</a></label>
+                </div>
+                <div class="u-align-center u-form-group u-form-submit">
+                    <a href="/registrarUsuario/" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-3 u-hover-palette-1-dark-1 u-btn-1"></a>
+                    <input type="submit" value="Registrar" class="botton">
+                </div>
+                <div class="u-form-send-message u-form-send-success"> Gracias! Tu mensaje ha sido enviado. </div>
+                    <div class="u-form-send-error u-form-send-message"> No se puede enviar su mensaje. Por favor, corrija los errores y vuelva a intentarlo. </div>
+                        <input type="hidden" value="" name="recaptchaResponse">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

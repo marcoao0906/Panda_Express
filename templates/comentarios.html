@@ -1,0 +1,69 @@
+{%extends 'layout.html'%}
+{% block body %}
+
+<link rel="stylesheet" href="static/css/comentarios.css">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/comentarios.css') }}" />
+    <title>registro</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <div class="logo">
+                    <li><img src="../static/images/logo2.png" class="logo" width="140" alt="80"></li>
+                </div>
+                <div class="op">
+                    <li><a href="/buscapla"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Buscar
+                            Platos</a></li>
+                    <li><a href="/pedidopla"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Carrito
+                            de Compras</a></li>
+                    <li><a href="/listadeseos"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Lista
+                            de Deseos</a></li>
+                    <li><a href="/comentarios"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>
+                            Comentarios</a></li>
+                    <li><a href="/logout"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Cerrar
+                            Sesion</a></li>
+
+
+                    <li><a href=""><img src="../static/images/user.png" class="user" width="30" alt="50"></a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="form">
+        <h1>Comentarios</h1>
+
+        <form action='/comentarios' method="GET">
+            <h1>Estos son Los Platos que Comentaste</h1>
+            <div class="row d-flex justify-content-center">
+            <table class="tabel table-striped table-bordered bg-white table-sm">
+                <tbody>
+                    <tr style="text-align:right">
+                        <th>Plato</th>
+                        <th>Comentario</th>
+                        <th>Operaciones</th>
+                    </tr>
+                    {%for i in platospedido%}
+                    <tr>
+                        <td>{{i[2]}}</td>
+                        <td>{{i[3]}}</td>
+                        <td>
+                            <a href="/eliminarcomen/{{i.0}}" class="btn btn-danger">Eliminar</a>
+
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    {% endblock %}

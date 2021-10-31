@@ -25,17 +25,18 @@
     </nav>
 </header>
 <section class="form">
+    <h5>Formulario Login</h5>
     <!--FORMULARIO-->
     <form name="form" method="post" action="/autenticar/">
         {{form.hidden_tag()}}
-        <div>
+        <div class="grupo">
             {{ form.username.label }}
                 {{ form.username }}<br>
                 {% for error in form.username.errors %}
                 <span style="color: red;">{{ error }}</span>
                 {% endfor %}
             </div>
-            <div>
+            <div class="grupo">
                 {{ form.password.label }}
                 {{ form.password }}<br>
                 {% for error in form.password.errors %}
@@ -44,12 +45,19 @@
             </div>
             <div>{{ form.remember_me() }} {{ form.remember_me.label }}</div>
             <div>
-                {{ form.submit() }}
+                <input type="submit" value="Ingresar" class="botton">
+            </div >
+    
+            <div>
+            </form>
+            <form name="form1" method="get" action="/newregister/">
+            <a href="/newregister/" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-3 u-hover-palette-1-dark-1 u-btn-1"></a>
+                    <input type="submit" value="Registrarse" class="botton">
             </div>
-            <p><a href="{{url_for('autenticar')}}">registrarse</a></p>           
+        </form>
+                      
 
-            <p><a href="#">Olvide mi contraseña</a></p>
-    </form>
+    
        
 </section>
      

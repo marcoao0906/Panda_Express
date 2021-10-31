@@ -27,14 +27,16 @@ body{
     padding-top: 50px;
     display: flex;
     flex-grow: 1;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .nav li {
     text-align: center;
     flex-grow: 1;
+    display: inline-block;
 }
 .nav ul{
-    margin-left:350px ;
-    margin-right:350px;
+    margin-left:50px ;
+    margin-right:50px;
     list-style: none;
     display: flex;
     /*para centrar el menu
@@ -43,6 +45,10 @@ body{
 .nav a{
     color: #fff;
     text-decoration: none;
+    padding: 0;
+    width: 90;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .search-icon{
@@ -101,7 +107,45 @@ body{
     text-decoration: none;
 
 }
+.form h{
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #fff;
+    }
 
+.form h5{
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #fff;
+    }
+.grupo{
+    width: 100%;
+    background: #eff3f7;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.botton{
+    width: 100%;
+    background: #478ac9;
+    border: none;
+    padding: 12px;
+    margin: 16px 0;
+    font-size: 16px;
+}
+a.btn{
+    width: 100%;
+    background: #478ac9;
+    border: none;
+    padding: 12px;
+    margin: 16px 0;
+    font-size: 16px;
+    text-decoration:none;
+
+}
 .form a:hover{
     color: #478ac9;
     text-decoration: underline;

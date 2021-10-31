@@ -1,6 +1,6 @@
 """
 create table temporal
-date created: 2021-10-28 14:10:32.176234
+date created: 2021-10-31 00:17:37.644136
 """
 
 
@@ -11,6 +11,7 @@ def upgrade(migrator):
         table.text('descripcion')
         table.int('precio')
         table.int('cantidad')
+        table.text('usuario')
 
 
 def downgrade(migrator):

@@ -13,21 +13,20 @@ def gettemporal():
     conn.close()
     return resultados
 
-def gettemSecure(nombre):
+def gettemSecure(username):
     try : 
         conn= conectar()
-        t= (nombre)
-        SQLstmt="select * from temporal where nombre=?;"
-        cursor= conn.execute(SQLstmt,  (nombre,))
+        SQLstmt="select * from temporal where usuario=?;"
+        cursor= conn.execute(SQLstmt,  (username,))
         resultado= cursor.fetchall()
         return resultado
     except Error as error:
         return error
 
-def addtem(nombre, descripcion, precio, cantidad):
+def addtem(nombre, descripcion, precio, cantidad, username):
     try :
         conn=conectar()
-        conn.execute("insert into temporal (nombre, descripcion, precio, cantidad) values(?,?,?);", (nombre, descripcion, precio, cantidad))
+        conn.execute("insert into temporal (nombre, descripcion, precio, cantidad, usuario) values(?,?,?,?,?);", (nombre, descripcion, precio, cantidad, username))
         conn.commit()
         conn.close()
         return True
@@ -35,19 +34,31 @@ def addtem(nombre, descripcion, precio, cantidad):
         print(error)
         return False
 
-def deletetem(nombre):
+def deletetem2(username):
     try : 
         conn= conectar()
-        SQLstmt="delete from temporal where nombre='"+str(nombre)+"';"
+        SQLstmt="delete from temporal where usuario='"+str(username)+"';"
         print(SQLstmt)
         cursor= conn.execute(SQLstmt)
-        resultado= cursor.fetchall()
         conn.commit()
         conn.close()
-        return resultado
+        return True
     except Error as error:
-        return error
+        return False
 #para detalle pedidos
+
+def deletetem(id):
+    try : 
+        conn= conectar()
+        SQLstmt="delete from temporal where id='"+str(id)+"';"
+        print(SQLstmt)
+        cursor= conn.execute(SQLstmt)
+        conn.commit()
+        conn.close()
+        return True
+    except Error as error:
+        return False
+
 def gettem(id):
     try : 
         conn= conectar()

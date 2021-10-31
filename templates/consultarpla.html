@@ -1,62 +1,109 @@
-{% block content %}
-<h1>Agregar Platos</h1>
-<link rel="stylesheet" href="static/css/estilo.css">
-<a href="http://127.0.0.1:5500/dashboart">Volver</a>
-<hr>
-<h2>Inventario Platos</h2>
-<form action='/ConsuPla'>
-    <p>Nombre Plato <br>
-        <input type="text" name="Nombre"> 
-    </p>
-    <p>
-        <input type="submit" value="Consultar">
-    </p>
+{%extends 'layout.html'%}
+{% block body %}
+<link rel="stylesheet" href="static/css/dashboart.css">
 
-<h2>Listar Platos</h2>
-<table id="tabel" border="1" align="center"> 
-    <tbody>
-      <tr style="text-align:right"> 
-        <th>Id</th> 
-        <th>Nombre</th> 
-        <th>Descripcion</th> 
-        <th>Precio</th> 
-    </tr> 
-    {%for j in plato%}
-    <tr>
-        <td>{{j[0]}}</td> 
-        <td>{{j[1]}}</td> 
-        <td>{{j[2]}}</td>  
-        <td>{{j[3]}}</td>
-    </tr>
-    {%endfor%}
-   
-    </tbody>
-</table>
-</form>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboart.css') }}" />
+</head>
 
-<form action='/VerPla'>
-    <p>
-        <input type="submit" value="Ver Todos Los Platos">
-    </p>
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <div class="logo">
+                    <li><img src="../static/images/logo2.png" class="logo" width="140" alt="80"></li>
+                </div>
+                <div class="op">
+                    <li><a href="/ConsuPla"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Consultar
+                            Platos
+                        </a></li>
+                    <li><a href="/Agregapla"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Agregar
+                            Platos
+                        </a></li>
+                    <li><a href="/Eliminapla"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Eliminar
+                            Platos
+                        </a></li>
+                    <li><a href="/gestionUsuario/"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>
+                            Gestionar Usuarios</a></li>
+                    <li><a href="/logout"
+                            class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span></span>Cerrar
+                            Sesion</a></li>
 
-    <h2>Platos Existentes en el Menu</h2>
-    <table id="tabel" border="1" align="center"> 
-        <tbody>
-          <tr style="text-align:right"> 
-            <th>Id</th> 
-            <th>Nombre</th> 
-            <th>Descripcion</th> 
-            <th>Precio</th>  
-        </tr> 
-        {%for i in platos%}
-        <tr>
-            <td>{{i[0]}}</td> 
-            <td>{{i[1]}}</td> 
-            <td>{{i[2]}}</td>  
-            <td>{{i[3]}}</td>
-        </tr>
-       {%endfor%}
-        </tbody>
-    </table>
-    </form>
-{% endblock %}
+
+                    <li><a href=""><img src="../static/images/user.png" class="user" width="30" alt="50"></a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <section class="form">
+        <h1>Inventario Platos</h1>
+        <form action='/ConsuPla'>
+            <p>Nombre Plato <br>
+                <input type="text" name="Nombre">
+            </p>
+            <p>
+                <input class="btn btn-warning" type="submit" value="Consultar">
+            </p>
+
+            <h1>Listar Platos</h1>
+            <div class="row d-flex justify-content-center">
+                <table class="tabel table-striped table-bordered bg-white table-sm">
+                    <tbody>
+                        <tr style="text-align:right">
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                        </tr>
+                        {%for j in plato%}
+                        <tr style="text-align:right">
+                            <td>{{j[0]}}</td>
+                            <td>{{j[1]}}</td>
+                            <td>{{j[2]}}</td>
+                            <td>{{j[3]}}</td>
+                        </tr>
+                        {%endfor%}
+
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        <p>
+
+
+        </p>
+
+        <form action='/VerPla'>
+            <p>
+                <input class="btn btn-warning" type="submit" value="Ver Todos Los Platos">
+            </p>
+
+            <h1>Platos Existentes en el Menu</h1>
+            <div class="row d-flex justify-content-center">
+                <table class="tabel table-striped table-bordered bg-white table-sm">
+                    
+                    <tbody>
+                        <tr style="text-align:right" >
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                        </tr>
+                        {%for i in platos%}
+                        <tr style="text-align:right">
+                            <td>{{i[0]}}</td>
+                            <td>{{i[1]}}</td>
+                            <td>{{i[2]}}</td>
+                            <td>{{i[3]}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </section>
+    {% endblock %}

@@ -7,8 +7,6 @@
 
 header{
     background: #000;
-    width: 100%;
-
 }
 
 body{
@@ -16,8 +14,10 @@ body{
 }
 
 
+
+
 .logo{
-    padding: 10px;
+    padding: 0px;
     margin: 0;
     display: flex;
     margin-bottom: 10px;
@@ -33,48 +33,22 @@ body{
     text-align: center;
     flex-grow: 1;
     display: inline-block;
-    
 }
 .nav ul{
     margin-left:50px ;
     margin-right:50px;
     list-style: none;
     display: flex;
-    padding: 0;
-    margin: 0;
     /*para centrar el menu
     justify-content: center;*/
 }
-.nav ul li{
-
-    display: inline-block;
-
-}
-
-.nav ul li a{
-
-    color: #fff;
-    text-decoration: none;
-    padding: 30px;
-
-}
-.nav ul li a:hover{
-
-    background-color: rgb(87, 85, 85);
-
-}
 .nav a{
     color: #fff;
-    display: inline-block;
     text-decoration: none;
     padding: 0;
     width: 90;
     max-width: 1000px;
     margin: auto;
-}
-.nav ul il a{
-    color:#fff;
-    padding: 20px 60px;
 }
 
 .search-icon{
@@ -104,11 +78,11 @@ body{
 
 /*FORMULARIO*/
 .form{
-    width: 600px;
+    width: 500px;
     background: #000;
-    padding: 20px;
+    padding: 30px;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 200px;
     border-radius: 4px;
     box-shadow: 7px 12px 20px #000;
 }
@@ -121,41 +95,38 @@ body{
     font-size: 18px;
 }
 
+.form p {
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 50px;
+}
 
 .form a{
-    color: #fff;
+    color: #478ac9;
     text-decoration: none;
 
 }
-.form p{
-    text-align: center;
-    color: #fff;
-
-}
-
 
 .form a:hover{
     color: #478ac9;
     text-decoration: underline;
 }
-.form h1{
+.form h4{
 font-size: 22px;
 margin-bottom: 20px;
 color: #fff;
-text-align: center;
 }
-.form.constrols{
+.constrols{
     width: 100%;
-    background: #eff3f7;
+    background: #24303c;
     padding: 8px;
     border-radius: 4px;
     margin-bottom: 16px;
     border: 1px solid #1f53c5;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
 
 }
-
 button.entrar {
     width: 100%;
     background:#478ac9;
@@ -171,8 +142,8 @@ button.entrar:hover{
     background: #478ac9;   
 }
 
-.form2.botton{
-    width: 30%;
+.botton{
+    width: 100%;
     background: #478ac9;
     border: none;
     padding: 12px;
@@ -184,4 +155,3 @@ button.registrar:hover{
     cursor: pointer;
     background: #478ac9;   
 }
-

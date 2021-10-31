@@ -43,46 +43,7 @@
 
     <section class="form">
 
-        <head>
-
-            <script language="javascript">
-                element = document.getElementByType("text")
-                function desbloqueo() {
-                    document.getElementById("nombre").disabled = false;
-                    document.getElementById("apellidos").disabled = false;
-                    document.getElementById("email").disabled = false;
-                    document.getElementById("id").disabled = false;
-                    document.getElementById("username").disabled = false;
-                    document.getElementById("direccion").disabled = false;
-                    document.getElementById("contrasena").disabled = false;
-                    document.getElementById("celular").disabled = false;
-                    document.getElementById("rol").disabled = false;
-                    document.getElementById("update").disabled = true;
-                    document.getElementById("actualizar").disabled = true;
-                    document.getElementById("eliminar").disabled = false;
-                    document.getElementById("nuevo").disabled = true;
-
-                }
-                function desbloqueo1() {
-                    document.getElementById("nombre").disabled = false;
-                    document.getElementById("apellidos").disabled = false;
-                    document.getElementById("email").disabled = false;
-                    document.getElementById("id").disabled = true;
-                    document.getElementById("username").disabled = false;
-                    document.getElementById("direccion").disabled = false;
-                    document.getElementById("contrasena").disabled = false;
-                    document.getElementById("celular").disabled = false;
-                    document.getElementById("rol").disabled = false;
-                    document.getElementById("update").disabled = false;
-                    document.getElementById("actualizar").disabled = true;
-                    document.getElementById("eliminar").disabled = true;
-                    document.getElementById("nuevo").disabled = true;
-                    document.getElementById("gestion").disabled = true;
-
-                }
-
-            </script>
-
+        <head>            
 
 
 
@@ -151,53 +112,53 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <form action="/nuevoUsuario/" method="POST" name="datos">
+                                        <form action="/actualizar/" method="POST" name="datos">
                                             <table>
                                                 <tbody>
                                                     <tr>
                                                         <td>
                                                             <p>Nombres<br>
                                                                 <input type="text" name="nombre" id="nombre"
-                                                                    placeholder={{nombre}} disabled="enabled">
+                                                                    placeholder={{nombre}} >
                                                         </td>
                                                         <td>
                                                             <p>Apellidos<br>
                                                                 <input type="text" name="apellidos" id="apellidos"
-                                                                    placeholder={{apellidos}} disabled="enabled">
+                                                                    placeholder={{apellidos}} >
                                                         </td>
                                                         <td>
                                                             <p>Correo electronico<br>
                                                                 <input type="text" name="email" id="email"
-                                                                    placeholder={{email}} disabled="enabled">
+                                                                    placeholder={{email}} >
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
                                                             <p>id<br>
                                                                 <input type="text" name="id" id="id" placeholder={{id}}
-                                                                    disabled="disabled">
+                                                                    >
                                                         </td>
                                                         <td>
                                                             <p>username<br>
                                                                 <input type="text" name="username" id="username"
-                                                                    placeholder={{username}} disabled="enabled">
+                                                                    placeholder={{username}} >
                                                         </td>
                                                         <td>
                                                             <p>Direccion<br>
                                                                 <input type="text" name="direccion" id="direccion"
-                                                                    placeholder={{direccion}} disabled="enabled">
+                                                                    placeholder={{direccion}} >
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
                                                             <p>contraseña<br>
                                                                 <input type="password" name="contrasena" id="contrasena"
-                                                                    placeholder={{contrasena}} disabled="enabled">
+                                                                    placeholder={{contrasena}} >
                                                         </td>
                                                         <td>
                                                             <p>Celular<br>
                                                                 <input type="text" name="celular" id="celular"
-                                                                    placeholder={{celular}} disabled="enabled">
+                                                                    placeholder={{celular}} >
                                                         </td>
                                                         <td>
                                                             <p>rol<br>
@@ -240,7 +201,7 @@
                                                 <td>
                                                     <a href="{{url_for('crearUsuario')}}">
                                                         <input class="btn btn-primary" type="submit" value="Nuevo" id="nuevo"
-                                                            onclick="desbloqueo1()" disabled="disabled"></a>
+                                                            onclick="desbloqueo2()" disabled="disabled"></a>
                                                 </td>
                                             </tr>
 

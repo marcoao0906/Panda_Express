@@ -1,6 +1,6 @@
 """
 create table detallepedido
-date created: 2021-10-28 14:10:32.176234
+date created: 2021-10-31 00:17:37.643139
 """
 
 

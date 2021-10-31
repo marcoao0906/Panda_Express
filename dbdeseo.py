@@ -6,38 +6,27 @@ def conectar():
     conn= sqlite3.connect(dbname)
     return conn
 
-def getPlatos():
+def getdeseo():
     conn= conectar()
-    cursor= conn.execute("select * from platos;")
+    cursor= conn.execute("select * from deseo;")
     resultados= list(cursor.fetchall())
     conn.close()
     return resultados
 
-def getPlatosSecure(nombre):
+def getdeseoSecure(usuario_id):
     try : 
         conn= conectar()
-        t= (nombre)
-        SQLstmt="select * from platos where nombre=?;"
-        cursor= conn.execute(SQLstmt,  (nombre,))
+        SQLstmt="select * from deseo where usuario_id=?;"
+        cursor= conn.execute(SQLstmt,  (usuario_id,))
         resultado= cursor.fetchall()
         return resultado
     except Error as error:
         return error
 
-def getPlatosidSecure(id):
-    try : 
-        conn= conectar()
-        SQLstmt="select * from platos where id=?;"
-        cursor= conn.execute(SQLstmt,  (id,))
-        resultado= cursor.fetchall()
-        return resultado
-    except Error as error:
-        return error
-
-def addPlatos(nombre, descripcion, precio):
+def addDeseo(usuario_id, plato_id, descripcion):
     try :
         conn=conectar()
-        conn.execute("insert into platos (nombre, descripcion, precio) values(?,?,?);", (nombre, descripcion, precio))
+        conn.execute("insert into deseo (usuario_id, plato_id, descripcion) values(?,?,?);", (usuario_id, plato_id,descripcion))
         conn.commit()
         conn.close()
         return True
@@ -45,10 +34,10 @@ def addPlatos(nombre, descripcion, precio):
         print(error)
         return False
 
-def deletePlatos(nombre):
+def deleteDeseo(plato_id):
     try : 
         conn= conectar()
-        SQLstmt="delete from platos where nombre='"+str(nombre)+"';"
+        SQLstmt="delete from deseo where id='"+str(plato_id)+"';"
         print(SQLstmt)
         cursor= conn.execute(SQLstmt)
         resultado= cursor.fetchall()
@@ -57,5 +46,3 @@ def deletePlatos(nombre):
         return resultado
     except Error as error:
         return error
-
-

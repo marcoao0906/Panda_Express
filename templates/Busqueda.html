@@ -1,29 +1,32 @@
-{% block content %}
-<h1>Bienvenido {{username}}, eres Usuari@ de Panda Express restaurante de comida Asiatica</h1>
-<link rel="stylesheet" href="static/css/Busqueda.css">
-<hr>
-<h2>Buscar Platos</h2>
-<form action='/buscapla'>
-    <p>
-        <input type="submit" value="Buscar Platos">
-    </p>
-</form>
-<form action='/pedidopla'>
-    <p>
-        <input type="submit" value="Carrito de Compras">
-    </p>
-</form>
-<form action='/listadeseos'>
-    <p>
-        <input type="submit" value="Lista de Deseos">
-    </p>
-</form>
-<form action='/comentarios'>
-  <p>
-      <input type="submit" value="Añadir Comentarios">
-  </p>
-</form>
-<form action="/logout">       
-    <button type="submit" value="cerrar">Cerrar Sesion</button>        
-</form>
+{%extends 'layout.html'%}
+{% block body %}
+<link rel="stylesheet" href="static/css/carrocom.css">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/carrocom.css') }}" />
+    <title>registro</title>
+</head>
+<body>
+<header>
+<nav class="nav">
+    <ul>
+        <div class="logo"><li><img src="../static/images/logo2.png" class="logo" width="160" alt="80"></li></div>
+        <div class="op">
+            <li><a href="/buscapla" class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span ></span>Buscar Platos</a></li>
+            <li><a href="/pedidopla" class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span ></span>Carrito de Compras</a></li>
+            <li><a href="/listadeseos" class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span ></span>Lista de Deseos</a></li>
+            <li><a href="/comentarios" class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span ></span>Comentarios</a></li>
+            <li><a href="/logout" class="u-border-none u-btn u-button-style u-custom-font u-font-arial u-none u-text-hover-white u-text-white u-btn-2"><span ></span>Cerrar Sesion</a></li>
+
+            <li><a href=""><img src="../static/images/user.png" class="user" width="30" alt="50"></a></li>
+        </div>
+    </ul>
+</nav>
+</header>
+
+<section class="form">
+    <div>
+        <h1>Bienvenid@ {{username}}, eres Usuari@ de Panda Express Restaurante de comida Asiatica</h1>
+    </div>
+</section>
+
 {% endblock %}

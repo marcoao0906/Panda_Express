@@ -1,6 +1,6 @@
 """
 create table comentarios
-date created: 2021-10-28 14:10:32.144958
+date created: 2021-10-31 00:17:37.638152
 """
 
 
